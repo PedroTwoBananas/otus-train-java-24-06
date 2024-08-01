@@ -1,21 +1,48 @@
 package homework;
 
+import java.util.Comparator;
 import java.util.Map;
+import java.util.TreeMap;
 
-@SuppressWarnings({"java:S1186", "java:S1135", "java:S1172"}) // при выполнении ДЗ эту аннотацию надо удалить
 public class CustomerService {
 
-    // todo: 3. надо реализовать методы этого класса
-    // важно подобрать подходящую Map-у, посмотрите на редко используемые методы, они тут полезны
+    private final TreeMap<Customer, String> customMap = new TreeMap<>(Comparator.comparing(Customer::getScores));
+
+    private Map.Entry<Customer, String> getEntry(Map.Entry<Customer, String> entry) {
+        if (entry == null) {
+            return null;
+        } else {
+            return new Map.Entry<>() {
+                @Override
+                public Customer getKey() {
+                    Customer innerCustomer = entry.getKey();
+                    return new Customer(innerCustomer.getId(), innerCustomer.getName(), innerCustomer.getScores());
+                }
+
+                @Override
+                public String getValue() {
+                    return entry.getValue();
+                }
+
+                @Override
+                public String setValue(String value) {
+                    return "";
+                }
+            };
+        }
+    }
 
     public Map.Entry<Customer, String> getSmallest() {
-        // Возможно, чтобы реализовать этот метод, потребуется посмотреть как Map.Entry сделан в jdk
-        return null; // это "заглушка, чтобы скомилировать"
+        Map.Entry<Customer, String> smallestEntry = customMap.firstEntry();
+        return getEntry(smallestEntry);
     }
 
     public Map.Entry<Customer, String> getNext(Customer customer) {
-        return null; // это "заглушка, чтобы скомилировать"
+        Map.Entry<Customer, String> nextEntry = customMap.higherEntry(customer);
+        return getEntry(nextEntry);
     }
 
-    public void add(Customer customer, String data) {}
+    public void add(Customer customer, String data) {
+        customMap.put(customer, data);
+    }
 }
