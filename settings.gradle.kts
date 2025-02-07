@@ -19,6 +19,7 @@ include("L18-jdbc")
 include("L21-hibernate")
 include("L22-cache")
 include("L24-web-server")
+include("L25-IoC")
 
 pluginManagement {
     val jgitver: String by settings
