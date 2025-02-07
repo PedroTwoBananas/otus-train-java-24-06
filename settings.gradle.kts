@@ -11,6 +11,17 @@ include("L04-generics")
 include("L05-collections")
 include("L06-annotations")
 include("L08-gc")
+include("L10-aop")
+include("L12-solid")
+include("L15-patterns")
+include("L16-io")
+include("L18-jdbc")
+include("L21-hibernate")
+include("L22-cache")
+include("L24-web-server")
+include("L25-IoC")
+include("L28-springdata-jdbc")
+include("L31-synchronized")
 
 pluginManagement {
     val jgitver: String by settings
@@ -21,6 +32,7 @@ pluginManagement {
     val protobufVer: String by settings
     val sonarlint: String by settings
     val spotless: String by settings
+    val lombok: String by settings
 
     plugins {
         id("fr.brouillard.oss.gradle.jgitver") version jgitver
@@ -31,5 +43,6 @@ pluginManagement {
         id("com.google.protobuf") version protobufVer
         id("name.remal.sonarlint") version sonarlint
         id("com.diffplug.spotless") version spotless
+        id("io.freefair.lombok") version lombok
     }
 }
