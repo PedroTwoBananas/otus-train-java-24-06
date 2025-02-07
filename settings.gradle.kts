@@ -23,6 +23,7 @@ include("L25-IoC")
 include("L28-springdata-jdbc")
 include("L31-synchronized")
 include("L33-concurrent-collections")
+include("L34-grpc")
 
 pluginManagement {
     val jgitver: String by settings
