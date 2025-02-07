@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: hw14-springdata-jdbc
+  datasource:
+    url: jdbc:postgresql://localhost:5430/demoDB
+    username: usr
+    password: pwd
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: TRACE
