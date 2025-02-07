@@ -24,6 +24,7 @@ include("L28-springdata-jdbc")
 include("L31-synchronized")
 include("L33-concurrent-collections")
 include("L34-grpc")
+include("L38-webflux-websockets")
 
 pluginManagement {
     val jgitver: String by settings
