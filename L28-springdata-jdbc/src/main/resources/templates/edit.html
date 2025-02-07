@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit client</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <style>
+        #clId {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h2>Edit client</h2>
+
+<form method="post" action="/edit">
+    <label>Client ID <br/> <input id="clId" type="text" name="clientID" placeholder="1" readonly th:value="${client.getId()}"/></label> <br/> <br/>
+    <label>Client name <br/> <input type="text" name="clientNewName" placeholder="name" th:value="${client.getName()}"/></label> <br/> <br/>
+    <label>Client address <br/> <input type="text" name="clientNewAddress" placeholder="address" th:value="${client.getAddress().street()}"/></label><br/><br/>
+    <label>Client phones</label><br/>
+    <div class="container">
+        <div class="row">
+            <div class="col" style="padding-left: 0">
+                <table class="table table-bordered">
+                    <tr th:each="phone : ${client.getPhones()}">
+                        <td th:text="'&#8226; ' + ${phone.number()}">
+                            123123123123
+                        </td>
+                        <td>
+                            <a href="/asd" th:href="@{/delete/phone( phoneId=${phone.id()}, clientId=${client.getId()} )}">delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+    <label>Add new phone <br/> <input type="text" name="clientNewPhone" placeholder="new phone"/></label><br/><br/>
+    <input type="submit"/>
+</form>
+</div>
+
+</body>
+</html>
