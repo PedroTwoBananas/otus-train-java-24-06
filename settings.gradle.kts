@@ -11,6 +11,13 @@ include("L04-generics")
 include("L05-collections")
 include("L06-annotations")
 include("L08-gc")
+include("L10-aop")
+include("L12-solid")
+include("L15-patterns")
+include("L16-io")
+include("L18-jdbc")
+include("L21-hibernate")
+include("L22-cache")
 
 pluginManagement {
     val jgitver: String by settings
