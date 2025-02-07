@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new client</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/jquery.slim.js"> </script>
+</head>
+<body>
+<div class="container">
+    <h2>Add new client</h2>
+
+    <form method="post" action="/add">
+        <label>Client name <br/> <input type="text" id="clientName" name="clientName" placeholder="name"/></label> <br/> <br/>
+        <label>Client address <br/> <input type="text" name="clientAddress" placeholder="address"/></label><br/><br/>
+        <label>Client phone <br/> <input type="text" name="clientPhone" placeholder="phone"/></label><br/>
+        <br/>
+        <input id="submit-btn" type="submit"/>
+    </form>
+</div>
+
+<script>
+    $('#submit-btn').click(function () {
+        if ($('#clientName').val() === '') {
+            alert('Please enter the client name');
+            return false;
+        }
+    });
+</script>
+
+</body>
+</html>
