@@ -21,6 +21,7 @@ include("L22-cache")
 include("L24-web-server")
 include("L25-IoC")
 include("L28-springdata-jdbc")
+include("L31-synchronized")
 
 pluginManagement {
     val jgitver: String by settings
