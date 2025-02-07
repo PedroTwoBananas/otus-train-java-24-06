@@ -13,6 +13,8 @@ include("L06-annotations")
 include("L08-gc")
 include("L10-aop")
 include("L12-solid")
+include("L15-patterns")
+include("L16-io")
 
 pluginManagement {
     val jgitver: String by settings
